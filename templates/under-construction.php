@@ -9,11 +9,11 @@ ob_start();
 ?>
 <section class="hero">
     <div class="hero__content">
-        <h1 class="hero__title">Revenim în curând</h1>
+        <h1 class="hero__title hero__title--accent">Revenim în curând</h1>
         <p class="hero__subtitle">
-            Lucrăm la ceva special pentru aplicația <strong>SMIL</strong>. Te rugăm să revii mai târziu.
+            <span class="hero__subtitle-line">Site-ul este în construcție.</span>
+            <span class="hero__subtitle-line">Pregătim ceva frumos pentru tine.</span>
         </p>
-        <a class="hero__cta" href="mailto:contact@pioneza.ro">Contactează-ne</a>
     </div>
     <div class="hero__illustration" aria-hidden="true">
         <div class="gear gear--large"></div>

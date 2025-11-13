@@ -61,11 +61,28 @@ body {
     line-height: 1.1;
 }
 
+.hero__title--accent {
+    background: linear-gradient(120deg, var(--color-primary), #5c8bff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
 .hero__subtitle {
     margin: 0;
     font-size: 1.1rem;
     color: var(--color-muted);
     max-width: 32ch;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.hero__subtitle-line {
+    display: block;
+}
+
+.hero__subtitle-line--accent {
+    font-weight: 600;
+    color: var(--color-primary);
 }
 
 .hero__cta {
