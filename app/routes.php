@@ -29,4 +29,19 @@ return function (App $app) {
         $group->get('', ListUsersAction::class);
         $group->get('/{id}', ViewUserAction::class);
     });
+
+    $app->map(['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'], '/{path:.+}', function (
+        Request $request,
+        Response $response
+    ) use ($app) {
+        /** @var PhpTemplateRenderer $renderer */
+        $renderer = $app->getContainer()->get(PhpTemplateRenderer::class);
+
+        $response = $response->withStatus(404);
+
+        return $renderer->render($response, 'errors/404', [
+            'pageTitle' => 'Pagina nu a fost găsită',
+            'errorMessage' => 'Pagina solicitată nu există.',
+        ]);
+    });
 };
