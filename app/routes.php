@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Application\Actions\User\ListUsersAction;
 use App\Application\Actions\User\ViewUserAction;
+use App\Application\Renderer\PhpTemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
@@ -15,9 +16,13 @@ return function (App $app) {
         return $response;
     });
 
-    $app->get('/', function (Request $request, Response $response) {
-        $response->getBody()->write('Hello world!');
-        return $response;
+    $app->get('/', function (Request $request, Response $response) use ($app) {
+        /** @var PhpTemplateRenderer $renderer */
+        $renderer = $app->getContainer()->get(PhpTemplateRenderer::class);
+
+        return $renderer->render($response, 'under-construction', [
+            'pageTitle' => 'Pagina în construcție',
+        ]);
     });
 
     $app->group('/users', function (Group $group) {

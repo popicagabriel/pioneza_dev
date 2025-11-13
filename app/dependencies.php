@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Application\Renderer\PhpTemplateRenderer;
 use App\Application\Settings\SettingsInterface;
 use DI\ContainerBuilder;
 use Monolog\Handler\StreamHandler;
@@ -25,6 +26,9 @@ return function (ContainerBuilder $containerBuilder) {
             $logger->pushHandler($handler);
 
             return $logger;
+        },
+        PhpTemplateRenderer::class => static function () {
+            return new PhpTemplateRenderer(__DIR__ . '/../templates');
         },
     ]);
 };

@@ -1,0 +1,214 @@
+:root {
+    color-scheme: light;
+    font-size: 16px;
+    --font-primary: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    --color-background: #f5f6fa;
+    --color-primary: #2b5be3;
+    --color-primary-dark: #1e45ad;
+    --color-text: #1c1f26;
+    --color-muted: #626a78;
+    --color-white: #ffffff;
+    --color-border: #d7dce8;
+    --shadow-soft: 0 20px 40px rgba(43, 91, 227, 0.15);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-primary);
+    background: radial-gradient(circle at top right, rgba(43, 91, 227, 0.1), transparent 55%), var(--color-background);
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.page-wrapper {
+    width: min(960px, 100%);
+    background-color: var(--color-white);
+    border-radius: 24px;
+    padding: min(7vw, 4rem);
+    box-shadow: var(--shadow-soft);
+}
+
+.hero {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.hero__content {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.hero__title {
+    font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+    margin: 0;
+    line-height: 1.1;
+}
+
+.hero__subtitle {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--color-muted);
+    max-width: 32ch;
+}
+
+.hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.75rem;
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+.hero__cta:hover,
+.hero__cta:focus-visible {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+.hero__illustration {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+}
+
+.gear {
+    border-radius: 50%;
+    border: 12px solid rgba(43, 91, 227, 0.18);
+    position: absolute;
+    animation: spin 12s linear infinite;
+}
+
+.gear::after {
+    content: "";
+    position: absolute;
+    inset: 12%;
+    border-radius: 50%;
+    border: 10px dashed rgba(43, 91, 227, 0.3);
+}
+
+.gear--large {
+    width: 220px;
+    height: 220px;
+}
+
+.gear--medium {
+    width: 150px;
+    height: 150px;
+    animation-duration: 16s;
+}
+
+.gear--small {
+    width: 90px;
+    height: 90px;
+    animation-duration: 8s;
+}
+
+.gear--medium {
+    top: 18%;
+    right: 8%;
+}
+
+.gear--small {
+    bottom: 12%;
+    left: 18%;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.page--error .page-wrapper {
+    text-align: center;
+}
+
+.error {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.error__badge {
+    width: 140px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(43, 91, 227, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.error__title {
+    margin: 0;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+}
+
+.error__message {
+    margin: 0;
+    color: var(--color-muted);
+    max-width: 48ch;
+}
+
+.error__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.error__link {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.error__link:hover,
+.error__link:focus-visible {
+    text-decoration: underline;
+}
+
+.error__details {
+    width: min(100%, 600px);
+    text-align: left;
+    padding: 1rem 1.25rem;
+    background: rgba(43, 91, 227, 0.05);
+    border: 1px dashed var(--color-border);
+    border-radius: 16px;
+    overflow-x: auto;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--color-muted);
+    white-space: pre-wrap;
+}
+
